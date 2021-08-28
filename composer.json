@@ -8,7 +8,7 @@
     "require-dev": {
         "phpunit/phpunit": "10.0.x-dev"
     },
-    "license": "LICENSE",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Didytel\\Ec2admin\\": "src/"
