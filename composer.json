@@ -1,0 +1,24 @@
+{
+    "name": "didytel/ec2admin",
+    "description": "A simple PHP wrapper for AWS Ec2 instances to easily get status, stop and start",
+    "type": "library",
+    "require": {
+        "aws/aws-sdk-php": "^3.191"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "10.0.x-dev"
+    },
+    "license": "LICENSE",
+    "autoload": {
+        "psr-4": {
+            "Didytel\\Ec2admin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "didytel",
+            "email": "didytel@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
