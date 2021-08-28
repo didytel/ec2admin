@@ -61,8 +61,8 @@ class Admin
             $previousState = $result->search("StartingInstances[*].PreviousState.Name");
         }
         
-        if($this->ec2->getState() != $previousState[0]){
-            $this->ec2->setState($currentState);
+        if($this->ec2->getState() != current($previousState)){
+            $this->ec2->setState(current($currentState));
         }
 
         return $this;
@@ -80,8 +80,8 @@ class Admin
             $previousState = $result->search("StoppingInstances[*].PreviousState.Name");
         }
         
-        if($this->ec2->getState() != $previousState[0]){
-            $this->ec2->setState($currentState);
+        if($this->ec2->getState() != current($previousState)){
+            $this->ec2->setState(current($currentState));
         }
 
         return $this;

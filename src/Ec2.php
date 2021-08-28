@@ -10,6 +10,7 @@ class Ec2 implements InstanceInterface
     public function __construct($id)
     {
         $this->id = $id;
+        $this->state = "";
     }
 
     public function getId(): string
