@@ -2,6 +2,7 @@
 
 namespace Didytel\Ec2admin;
 
+use Aws\Credentials\CredentialsInterface;
 use Aws\Ec2\Ec2Client;
 
 /** @package App\Instance */
@@ -9,19 +10,26 @@ class Admin
 {
     private InstanceInterface $ec2;
     private Ec2Client $ec2client;
+    private ?CredentialsInterface $credentials;
 
-    public function __construct(InstanceInterface $ec2)
+    public function __construct(InstanceInterface $ec2, ?CredentialsInterface $credentials)
     {
         $this->ec2 = $ec2;
+        $this->credentials = $credentials;
     }
 
     private function getClient()
     {
         if(!isset($this->ec2client)){
-            $this->ec2client = new Ec2Client([
+            $opts = [
                 'region' => 'eu-central-1',
                 'version' => 'latest',
-            ]); 
+            ];
+            if($this->credentials){
+                $opts['credentials'] = $this->credentials;
+            }
+
+            $this->ec2client = new Ec2Client($opts);
         }
 
         return $this->ec2client;
